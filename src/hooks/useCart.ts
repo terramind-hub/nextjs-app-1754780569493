@@ -10,5 +10,13 @@ export function useCart() {
     throw new Error('useCart must be used within a CartProvider');
   }
   
-  return context;
+  // Add the missing getCartItemCount function
+  const getCartItemCount = () => {
+    return context.itemCount;
+  };
+  
+  return {
+    ...context,
+    getCartItemCount
+  };
 }
